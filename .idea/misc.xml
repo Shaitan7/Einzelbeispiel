@@ -3,9 +3,13 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/AAU/SoftwareEngineering2/Einzelbeispiel/app/src/main/res/layout/activity_display_message.xml" value="0.1564207650273224" />
         <entry key="..\:/AAU/SoftwareEngineering2/Einzelbeispiel/app/src/main/res/layout/activity_main.xml" value="0.2848731884057971" />
       </map>
     </option>
+  </component>
+  <component name="ProjectPlainTextFileTypeManager">
+    <file url="file://$PROJECT_DIR$/app/src/main/res/layout/activity_display_message.xml" />
   </component>
   <component name="ProjectRootManager" version="2" languageLevel="JDK_11" project-jdk-name="1.8" project-jdk-type="JavaSDK">
     <output url="file://$PROJECT_DIR$/build/classes" />
