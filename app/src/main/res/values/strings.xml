@@ -1,3 +1,6 @@
 <resources>
     <string name="app_name">Einzelbeispiel</string>
+    <string name="labelMatrikel_name">Gib deine Matrikelnummer ein</string>
+    <string name="buttonSubmit_name">Abschicken</string>
+    <string name="labelResponse_name">Antwort vom Server</string>
 </resources>
