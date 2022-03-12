@@ -2,7 +2,6 @@ package com.example.einzelbeispiel;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.EditText;
@@ -20,8 +19,11 @@ public class MainActivity extends AppCompatActivity {
 
     /** Called when the user taps the Send button */
     public void sendMessage(View view) {
-        EditText editText = (EditText) findViewById(R.id.input);
-        String matnr = editText.getText().toString();
+        EditText editTextMatnr = (EditText) findViewById(R.id.input);
+        TextView textViewResponse = findViewById(R.id.textResponse);
+        TextView textViewCalc = findViewById(R.id.textViewCalc);
+
+        String matnr = editTextMatnr.getText().toString();
 
         client.setMatnr(matnr);
         Thread t = new Thread(client);
@@ -31,8 +33,18 @@ public class MainActivity extends AppCompatActivity {
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
+        textViewResponse.setText(client.getResponse());
+        textViewCalc.setText(calculate(matnr));
+    }
 
-        TextView response = findViewById(R.id.textResponse);
-        response.setText(client.getResponse());
+    public String calculate(String matnr){
+        int sum = 0;
+        for(int i = 0; i<matnr.length(); i++) {
+            int z = Integer.parseInt(String.valueOf(matnr.charAt(i)));
+            if(i%2==0)sum += z;
+            else sum -= z;
+        }
+        if(sum%2==0) return sum + ", gerade";
+        return sum + ", ungerade";
     }
 }
