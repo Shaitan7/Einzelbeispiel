@@ -19,10 +19,8 @@ public class MainActivity extends AppCompatActivity {
 
     /** Called when the user taps the Send button */
     public void sendMessage(View view) {
-        EditText editTextMatnr = (EditText) findViewById(R.id.input);
         TextView textViewResponse = findViewById(R.id.textResponse);
-        TextView textViewCalc = findViewById(R.id.textViewCalc);
-
+        EditText editTextMatnr = (EditText) findViewById(R.id.input);
         String matnr = editTextMatnr.getText().toString();
 
         client.setMatnr(matnr);
@@ -34,17 +32,22 @@ public class MainActivity extends AppCompatActivity {
             e.printStackTrace();
         }
         textViewResponse.setText(client.getResponse());
-        textViewCalc.setText(calculate(matnr));
     }
 
-    public String calculate(String matnr){
+    public void calculate(View view){
+        EditText editTextMatnr = (EditText) findViewById(R.id.input);
+        String matnr = editTextMatnr.getText().toString();
+        TextView textViewCalc = findViewById(R.id.textViewCalc);
         int sum = 0;
         for(int i = 0; i<matnr.length(); i++) {
             int z = Integer.parseInt(String.valueOf(matnr.charAt(i)));
             if(i%2==0)sum += z;
             else sum -= z;
         }
-        if(sum%2==0) return sum + ", gerade";
-        return sum + ", ungerade";
+        String s = "";
+        if(sum%2==0) s = sum + ", gerade";
+        s = sum + ", ungerade";
+
+        textViewCalc.setText(s);
     }
 }
