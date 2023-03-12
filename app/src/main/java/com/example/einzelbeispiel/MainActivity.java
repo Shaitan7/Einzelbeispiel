@@ -17,7 +17,9 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
     }
 
-    /** Called when the user taps the Send button */
+    /**
+     * Called when the user taps the Send button
+     */
     public void sendMessage(View view) {
         TextView textViewResponse = findViewById(R.id.textResponse);
         EditText editTextMatnr = (EditText) findViewById(R.id.input);
@@ -34,20 +36,27 @@ public class MainActivity extends AppCompatActivity {
         textViewResponse.setText(client.getResponse());
     }
 
-    public void calculate(View view){
-        EditText editTextMatnr = (EditText) findViewById(R.id.input);
+    public void calculate(View view) {
+        EditText editTextMatnr = findViewById(R.id.input);
         String matnr = editTextMatnr.getText().toString();
         TextView textViewCalc = findViewById(R.id.textViewCalc);
-        int sum = 0;
-        for(int i = 0; i<matnr.length(); i++) {
-            int z = Integer.parseInt(String.valueOf(matnr.charAt(i)));
-            if(i%2==0)sum += z;
-            else sum -= z;
-        }
-        String s = "";
-        if(sum%2==0) s = sum + ", gerade";
-        s = sum + ", ungerade";
 
+        String s = "";
+
+        for (int i = 0; i < matnr.length(); i++) {
+            int z = Integer.parseInt(String.valueOf(matnr.charAt(i)));
+            if (isPrime(z)) s += z + " ";
+        }
         textViewCalc.setText(s);
+    }
+
+    static boolean isPrime(int n) {
+        int teilerAnz = 0;
+        for (int teiler = 1; teiler <= n; teiler++) {
+            if (n % teiler == 0) teilerAnz++;
+        }
+
+        if (teilerAnz == 2) return true;
+        return false;
     }
 }

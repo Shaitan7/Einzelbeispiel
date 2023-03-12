@@ -71,7 +71,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="40dp"
         android:onClick="calculate"
-        android:text="Quersumme berechnen"
+        android:text="Primzahlen ausgeben"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
